@@ -11,7 +11,7 @@ You can get mentor and friend for learn the skill you are working on. Beside you
 
 ## Feature Requirement
 
-User
+### User
 
 - Login
 - Register
@@ -28,7 +28,7 @@ User
 - Update Profil
 - Change Password
 
-Mentor
+### Mentor
 
 - Login
 - Register
@@ -42,3 +42,32 @@ Mentor
 - Show Profil
 - Update Profil
 - Change Password
+
+## API Spec
+
+### Login
+
+Request :
+- Method : POST
+- Endpoint : `./api/user/login`
+- Header :
+    - Content-Type: application/json
+    - Accept: application/json
+- Body :
+
+```json
+{
+    "email": "string"
+    "password": "string"
+}
+```
+
+- Response :
+
+```json
+{
+    "status": "string"
+    "message": "string"
+    "token": "string"
+}
+```
