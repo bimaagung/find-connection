@@ -4,7 +4,13 @@ class User {
   }
 
   async getUserByEmail(email) {
-    return await this.userRepository.getUserByEmail(email)
+    let user = await this.userRepository.getUserByEmail(email)
+    return user
+  }
+
+  async createUser(users) {
+    let user = await this.userRepository.createUser(users)
+    return user
   }
 }
 
