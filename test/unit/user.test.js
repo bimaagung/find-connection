@@ -6,7 +6,7 @@ jest.mock('../../repository/user')
 const userRepository = new UserRepository()
 const userUC = new UserUC(userRepository)
 
-test('test mock user partial class findByEmail', () => {
+test('test mock user class findByEmail', async () => {
   const user = {
     id: '1',
     name: 'Bima',
@@ -19,7 +19,7 @@ test('test mock user partial class findByEmail', () => {
 
   userRepository.getUserByEmail.mockReturnValueOnce(user)
 
-  expect(userUC.getUserByEmail('bimaagungsetya@gmail.com')).toEqual(user)
+  expect(await userUC.getUserByEmail('bimaagungsetya@gmail.com')).toEqual(user)
   expect(userRepository.getUserByEmail).toHaveBeenCalled()
   expect(userRepository.getUserByEmail).toHaveBeenCalledWith(
     'bimaagungsetya@gmail.com',

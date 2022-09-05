@@ -32,7 +32,6 @@ router.post('/', async (req, res) => {
     */
 
   let email = req.body['email']
-  console.log(req)
 
   let user = await req.UserUC.getUserByEmail(email)
   if (user === null) {
