@@ -41,4 +41,42 @@ router.post('/', async (req, res) => {
   res.json(user)
 })
 
+router.post('/add', async (req, res) => {
+  /*
+      #swagger.summary = "Get User By Email"
+      #swagger.description = 'Get User By Email'
+      #swagger.tags = ['User']
+      #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: {
+                        type: "object",
+                        properties: {
+                            email: {
+                                type: "string"
+                            }
+                        },
+                    }
+                },
+            }
+        } 
+      #swagger.responses[200] = {
+          description: "Item found.",
+          schema: [{$ref: '#definitions/User'}]
+      }
+      #swagger.responses[400] = {
+          description: "Item not found.",
+          schema: null
+      }
+    */
+
+  let users = req.body
+
+  let user = await req.UserUC.createUser(users)
+
+  res.json(user)
+})
+
+
 module.exports = router

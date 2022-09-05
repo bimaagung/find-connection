@@ -13,7 +13,7 @@ class UserRepository {
       console.log(err)
       return null
     }
-
+    
     return data
   }
 
@@ -25,7 +25,17 @@ class UserRepository {
       console.log(err.message)
       return null
     }
+    return data
+  }
 
+    async createUser(users) {
+    let data = null
+    try {
+      data = await this.UserModel.create(users)
+    } catch (err) {
+      console.log(err.message)
+      return null
+    }
     return data
   }
 
@@ -38,6 +48,8 @@ class UserRepository {
 
     return await this.UserModel.findAll()
   }
+
+  
 }
 
 module.exports = UserRepository
