@@ -1,5 +1,5 @@
 const request = require('supertest')
-const app = require('../../http/app')
+const app = require('../../app')
 const db = require('../../models')
 
 describe('POST /user', () => {
@@ -7,9 +7,7 @@ describe('POST /user', () => {
     await db.sequelize.sync({force: true})
   })
   describe('user route', () => {
-    
     it('responds route post /user/add with responseCode 200', async () => {
-      
       const user = {
         name: 'Bima',
         birth_date: '1996/12/12',
@@ -22,9 +20,9 @@ describe('POST /user', () => {
         .send(user)
         .set('Accept', 'application/json')
 
-       expect(response.status).toEqual(200)
+      expect(response.status).toEqual(200)
     })
-    
+
     it('responds route post /user with result true', async () => {
       const user = {
         id: 1,
@@ -35,16 +33,15 @@ describe('POST /user', () => {
         createdAt: '2022-09-05T04:45:17.347Z',
         updatedAt: '2022-09-05T04:45:17.347Z',
       }
-        
+
       const response = await request(app)
         .post('/user')
         .send({email: 'bimaagungsetya@gmail.com'})
         .set('Accept', 'application/json')
 
       expect(response.status).toEqual(200)
-       expect(response.body).toEqual(user)
+      expect(response.body).toEqual(user)
     })
-
   })
   // Clear users table and close db connection
   afterAll(async () => {
