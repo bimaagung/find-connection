@@ -5,6 +5,16 @@ class UserRepository {
     this.UserModel = User
   }
 
+  async getAllUser(filter) {
+    let data = null
+
+    if (filter != null) {
+      return await this.UserModel.findAll({where: filter})
+    }
+
+    return await this.UserModel.findAll()
+  }
+
   async getUserById(id) {
     let data = null
     try {
@@ -13,7 +23,7 @@ class UserRepository {
       console.log(err)
       return null
     }
-    
+
     return data
   }
 
@@ -28,10 +38,10 @@ class UserRepository {
     return data
   }
 
-    async createUser(users) {
+  async createUser(user) {
     let data = null
     try {
-      data = await this.UserModel.create(users)
+      data = await this.UserModel.create(user)
     } catch (err) {
       console.log(err.message)
       return null
@@ -39,17 +49,30 @@ class UserRepository {
     return data
   }
 
-  async getUsers(filter) {
+  async updateUser(id, user) {
     let data = null
-
-    if (filter != null) {
-      return await this.UserModel.findAll({where: filter})
+    try {
+      data = await this.UserModel.update(
+        {name: user.name, name: user.birth_date},
+        {where: {id: id}},
+      )
+    } catch (err) {
+      console.log(err.message)
+      return null
     }
-
-    return await this.UserModel.findAll()
+    return data
   }
 
-  
+  async deleteUser(id) {
+    let data = null
+    try {
+      data = await this.UserModel.destroy({where: {id: id}})
+    } catch (err) {
+      console.log(err.message)
+      return null
+    }
+    return data
+  }
 }
 
 module.exports = UserRepository

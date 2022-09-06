@@ -5,8 +5,8 @@ var logger = require('morgan')
 
 const app = express()
 
-const UserRepository = require('../repository/user')
-const UserUC = require('../usecase/user')
+const UserRepository = require('./repository/user')
+const UserUC = require('./usecase/user')
 
 const userRouter = require('./routes/user')
 
@@ -30,7 +30,7 @@ app.use('/user', userRouter)
 
 // documentation
 const swaggerUi = require('swagger-ui-express')
-const swaggerDocument = require('../docs/docs.json')
+const swaggerDocument = require('./docs/docs.json')
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
