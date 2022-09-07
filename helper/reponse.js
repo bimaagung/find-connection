@@ -28,7 +28,7 @@ module.exports = {
   server_error: () => {
     let res_data = {
       status: 'failed',
-      message: 'Server error',
+      message: 'Inter Server Error',
     }
 
     return res_data
