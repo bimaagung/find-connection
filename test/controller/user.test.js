@@ -11,7 +11,7 @@ const userUC = new UserUC(userRepo)
 const user = {
   id: 1,
   name: 'Bima',
-  birth_date: '1996-12-13 00:00:00',
+  birth_date: '2021-08-16 00:00:00',
   email: 'bimaagungsetya@gmail.com',
   password: '12345678',
   createdAt: '2022-09-03 00:00:00',

@@ -7,7 +7,7 @@ module.exports = {
       [
         {
           name: 'Bima',
-          birth_date: new Date('1996/12/13'),
+          birth_date: new Date('2021/08/16'),
           email: 'bimaagungsetya@gmail.com',
           password: '12345678',
           createdAt: new Date(),
