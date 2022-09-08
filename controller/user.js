@@ -38,7 +38,7 @@ module.exports = {
       return res.status(404).json(resData.failed('User not found'))
     }
 
-    res.json(user)
+    return res.status(200).json(user)
   },
 
   addUser: async (req, res) => {

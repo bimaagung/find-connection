@@ -5,6 +5,7 @@ class User {
 
   async getUserByEmail(email) {
     let user = await this.userRepository.getUserByEmail(email)
+
     return user
   }
 
