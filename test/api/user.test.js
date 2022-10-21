@@ -18,6 +18,7 @@ describe('POST /user/get_by_email', () => {
         done()
       })
   })
+  
   it('should return user with status code 404 not found', (done) => {
     chai
       .request(app)

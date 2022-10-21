@@ -35,10 +35,10 @@ module.exports = {
 
     let user = await req.UserUC.getUserByEmail(email)
     if (user === null) {
-      return res.status(404).json(resData.failed('User not found'))
+      return res.status(404).json(resData.failed('Data Not found'))
     }
 
-    return res.status(200).json(user)
+    return res.status(200).json(resData.success(user))
   },
 
   addUser: async (req, res) => {
